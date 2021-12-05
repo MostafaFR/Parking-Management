@@ -1,2 +1,79 @@
-Test
-sfsdf
+Gestion des parkings
+
+Une société de parkings souhaite mettre en place une base de données afin de gérer ses différents parkings dans une ville. Chaque parking est composé de plusieurs places, en plein air ou couvertes, adaptées à certains types de véhicules (deux_roues; camion; véhicule simple). Les prix des parkings varient selon la zone dans laquelle ils se situent dans la ville (Centre-ville, zone industrielle, zone d'activités commerciales, etc.).
+Chaque utilisateur de ces parkings est soit un occasionnel, soit un abonné chez cette société. Un utilisateur peut avoir un ou plusieurs véhicules. Les occasionnels paient des tickets à l'heure, dans des guichets ou sur des automates avec sa carte bancaire. Les abonnés disposent des cartes mensuelles renouvelables chaque mois. La société souhaite gérer les transactions ayant lieu lors de chaque paiement.
+Pour attirer plus de clients, la société veut mettre en œuvre un système de fidélité pour ses clients. Pour chaque nouvel abonné, un compte lui est créé afin de sauvegarder ses différents abonnements.
+
+Note de clarification :
+
+Parking : 	
+adresse : string { key }
+est dans la zone => zone
+	On calcule nombre de place total ainsi que le nombre de place occupé et libre et on l’affiche publiquement.
+Zone : 
+nom { key }
+prix : int
+Place : 
+numéro : int { key }
+est dans parking => parking
+emplacement: enum { plein air, couverte }
+type vehicule : enum { voiture, deux_roues, camion }
+Status : enum( libre || occupé || reservé)
+Reservations :
+Véhicule => Véhicule 
+place => place
+Prix
+Date de début
+Date de fin
+
+Utilisateur : 
+Nom : string
+Prénom : string
+
+4.1. UtilisateurOccasionnel
+Herite de Utilisateur
+possède un véhicule => Véhicule
+
+4.2. UtilisateurAbonné
+Herite de Utilisateur
+num_abonné : int { key }
+possède un ou plusieurs véhicule => Véhicule
+Reduction : int { key }
+compte_actif : bool { key }
+Carte de paiement
+
+
+
+Vehicule :
+num_immat : string { key }
+véhicule appartient à un utilisateur => Utilisateur
+type_vehicule : enum { voiture, deux_roues, camion }
+
+
+Transaction
+Date de paiement
+Moyen de paiement : (CB || Cash)
+Machine : (Automate || Guichet || En ligne)
+La transaction est payée seulement en CB si elle a un lien sur un automate. La transaction est payable seulement sur un guichet ou en ligne si c’est un abonnement). La transaction d’un utilisateur occasionnel est payable seulement en guichet ou automate.
+
+6.1. TransactionOccasionnel :
+Herite de Transaction
+Prix de la zone => Zone
+
+6.2. TransactionAbonné :
+Herite de Transaction
+ PrixAbonnement : int { key }
+
+
+Ticket :
+heure_arrivée : TIME { key }
+num_immat => véhicule
+place => place
+
+Le systeme fonctionnerait de la manniere suivante : 
+
+Un véhicule arrive à la barrière d’entrée, une caméra filme le véhicule et reconnaît la plaque d’immatriculation. Ensuite l’utilisateur demande un ticket sur l’automate, la date et l’heure d’entrée sont précisées. Si le véhicule appartient à un utilisateur abonné ou un utilisateur ayant fait une réservation, la barrière s’ouvre directement sans ticket.
+Si le parking est plein, la barriere ne s’ouvrira pas.
+
+Au moment de la sortie, l’utilisateur présente son ticket, et paye à l’heure. Si l’utilisateur est abonné, il sortira directement sans ticket. 
+Toutes les informations de l'utilisateur abonné (entrée et sortie) seront disponibles en ligne ou sur un guichet. Si l’utilisateur a fait une réservation et n’a pas dépassé le temps compris, la barrière s’ouvre, sinon il paye.
