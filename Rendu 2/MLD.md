@@ -42,4 +42,4 @@
 
 * Une réservation est liée à un unique utilisateur.
 
-
+* Paiement sur l'automate uniquement via CB (sinon CB et Cash sur les guichets)
