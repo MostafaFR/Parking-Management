@@ -1,11 +1,11 @@
 # __MLD__ <br/>
-Parking (#adresse : varchar, nom : varchar, zone=>Zone)
+Parking (#adresse : varchar, #nom : varchar, zone=>Zone)
 <br/>
 Zone (#nom : varchar, prix : integer)
 <br/>
 Place (#num : integer, parking=>Parking, emplacement : Type_emplacement, véhicule : Type_véhicule, status : Status)
 <br/>
-Utilisateur (#ID : integer, nom : varchar, prenom : varchar)
+Utilisateur (#ID : integer, nom : varchar, prenom : varchar, num_abonne : integer, )
 <br/>
 Vehicule (#IMAT : varchar, utilisateur=>Utilisateur, Vehicule : Type_véhicule)
 <br/>
