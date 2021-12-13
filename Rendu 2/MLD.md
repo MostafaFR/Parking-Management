@@ -5,16 +5,15 @@ Zone (#nom : varchar, prix : integer)
 <br/>
 Place (#num : integer, parking=>Parking, emplacement : Type_emplacement, véhicule : Type_véhicule, status : Status)
 <br/>
-Utilisateur (#ID : integer, nom : varchar, prenom : varchar, num_abonne : integer, )
+Utilisateur (#ID : integer, nom : varchar, prenom : varchar, num_abonne : integer, CB : string, prix_abo : integer, actif : bool, type : Type_utilisateur)
 <br/>
 Vehicule (#IMAT : varchar, utilisateur=>Utilisateur, Vehicule : Type_véhicule)
 <br/>
 Reservation (#ID : integer, véhicule=>Vehicule, prix : integer, début : date, fin : date)
 <br/>
-Transaction (#ID :integer, date : date, moyen_paiement : Moyen_payement, machine : Type_machine) //contraintes en fct machine
+Transaction (#ID :integer, date : date, moyen_paiement : Moyen_payement, machine : Type_machine, heure_arrivee : time, imat=>Vehicule(IMAT), place=>Place(num), type : Type_transaction)  // contraintes en fct machine
 <br/>
-Ticket (#heure_arrivee : time, imat=>Vehicule(IMAT), place=>Place(num))
-<br/>
+
 
 # Types :
 Type_emplacement : enum {plein_air, couverte}
@@ -26,6 +25,11 @@ Status : enum {libre, occupe, reserve}
 Moyen_payement : enum {CB, cash}
 <br/>
 Type_machine : enum {Automate, Guicher, En ligne}
+<br/>
+Type_utilisateur : enum { Abonné, Occasionnel }
+<br/>
+Type_transaction : enum { Occasionnel, Abonnement }
+
 
 # Contraintes : 
 On supprime le ticket quand la voiture sort
