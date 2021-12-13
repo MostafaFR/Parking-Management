@@ -28,3 +28,6 @@ Moyen_payement : enum {CB, cash}
 Type_machine : enum {Automate, Guicher, En ligne}
 
 # Contraintes : 
+On supprime le ticket quand la voiture sort
+<br/>
+
