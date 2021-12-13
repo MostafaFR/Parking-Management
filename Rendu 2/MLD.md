@@ -16,19 +16,19 @@
 
 
 # Types :
-* Type_emplacement : enum {plein_air, couverte}
+* enum Type_emplacement {plein_air, couverte}
 
-* Type_véhicule : enum {voiture, deux_roues, camion}
+* enum Type_véhicule {voiture, deux_roues, camion}
 
-* Status : enum {libre, occupe, reserve}
+* enum Status {libre, occupe, reserve}
 
-* Moyen_payement : enum {CB, cash}
+* enum Moyen_payement {CB, cash}
 
-* Type_machine : enum {Automate, Guicher, En ligne}
+* enum Type_machine {Automate, Guicher, En ligne}
 
-* Type_utilisateur : enum { Abonné, Occasionnel }
+* enum Type_utilisateur {Abonné, Occasionnel}
 
-* Type_transaction : enum { Occasionnel, Abonnement }
+* enum Type_transaction {Occasionnel, Abonnement}
 
 
 # Contraintes : 
