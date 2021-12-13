@@ -32,6 +32,14 @@ Type_transaction : enum { Occasionnel, Abonnement }
 
 
 # Contraintes : 
-On supprime le ticket quand la voiture sort
+* On supprime le ticket quand la voiture sort.
 <br/>
-
+* Un utilisateur ne peut pas entrer dans le parking / prendre un ticket, si celui-ci est plein.
+<br/>
+* Un ticket non payé ne permet pas à l'utilisateur de sortir.
+<br/>
+* Un abonnement est limité à un unique véhicule.
+<br/>
+* Une réservation est liée à un unique utilisateur.
+<br/>
+*
