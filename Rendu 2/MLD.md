@@ -3,7 +3,7 @@
 
 * Zone (#nom : varchar, prix : integer)
 
-* Place (#num : integer, parking=>Parking, emplacement : Type_emplacement, véhicule : Type_véhicule, status : Status)
+* Place (#num : integer, #parking=>Parking, emplacement : Type_emplacement, véhicule : Type_véhicule, status : Status)
 
 * Utilisateur (#ID : integer, nom : varchar, prenom : varchar, num_abonne : integer, CB : string, prix_abo : integer, actif : bool, type : Type_utilisateur)
 
