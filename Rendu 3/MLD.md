@@ -11,7 +11,7 @@
 
 * Reservation (#ID : integer, véhicule=>Vehicule, prix : integer, début : date, fin : date)
 
-* Transaction (#ID :integer, date : date, moyen_paiement : Moyen_payement, machine : Type_machine, heure_arrivee : time, imat=>Vehicule(IMAT), place=>Place(num), type : Type_transaction)  // contraintes en fct machine
+* Transaction (#ID :integer, date : date, moyen_paiement : Moyen_payement, machine : Type_machine, heure_arrivee : time, imat=>Vehicule(IMAT), place=>Place(num), type : Type_transaction)       // contraintes en fct machine
 
 
 
@@ -32,17 +32,12 @@
 
 
 # Contraintes : 
-* On supprime le ticket quand la voiture sort.
+* prix.Zone NOT NULL
 
-* Un utilisateur ne peut pas entrer dans le parking / prendre un ticket, si celui-ci est plein.
+* nom.Utilisateur & prenom.Utilisateur NOT NULL
 
-* Un ticket non payé ne permet pas à l'utilisateur de sortir.
+* prix.Reservation NOT NULL
 
-* Un abonnement est limité à un unique véhicule.
-
-* Une réservation est liée à un unique utilisateur.
-
-* Paiement sur l'automate uniquement via CB (sinon CB et Cash sur les guichets)
 
 # Choix d'héritage
 * 
