@@ -40,4 +40,6 @@
 
 
 # Choix d'héritage
-* 
+* Utilisateur: On fait une spécialisation pour utilisateur abonné, il ne serait pas optimal de créer une table supplémentaire pour Utilisateuroccasionnel puisqu'elle ne comporterait pas plus d'attributs qu'Utilisateur.
+
+* Transactions: 
