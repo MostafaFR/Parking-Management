@@ -87,8 +87,29 @@ FOREIGN KEY (place) REFERENCES Place(NumPlace),
     )
 );
 
+-- Initialisation
+INSERT into Zone values ("Periurbain",2.5);
+INSERT into Zone values ("Centre",3);
+INSERT into Zone values ("Commercial",2);
 
-INSERT into Zone values (%s,%s);
+INSERT into Parking (Nom , Adresse , Zone, NbMaxPlaces) values ('Halles', '9 Rue St Jean' , 'Centre' , 120);
+INSERT into Parking (Nom , Adresse , Zone, NbMaxPlaces) values ('Cordeliers', '1 Avenue Cordeliers', 'Centre', 70);
+INSERT into Parking (Nom , Adresse , Zone, NbMaxPlaces) values ('Auchan', '3 Rue St Joseph','Commercial', 250);
+INSERT into Parking (Nom , Adresse , Zone, NbMaxPlaces) values ('Jardiland', '12 Rue des Arbres','Periurbain', 400);
+
+INSERT into Place (Parking , Emplacement , Vehicule, Status) values ('Halles', 'couvert', 'simple', 'libre');
+INSERT into Place (Parking , Emplacement , Vehicule, Status) values ('Halles', 'couvert', 'simple', 'occupe');
+INSERT into Place (Parking , Emplacement , Vehicule, Status) values ('Halles', 'couvert', 'simple', 'reserve');
+
+INSERT into Place (Parking , Emplacement , Vehicule, Status) values ('Auchan', 'pleinAir', 'simple', 'libre');
+INSERT into Place (Parking , Emplacement , Vehicule, Status) values ('Auchan', 'pleinAir', 'simple', 'occupe');
+INSERT into Place (Parking , Emplacement , Vehicule, Status) values ('Auchan', 'pleinAir', 'simple', 'libre');
+
+INSERT into Place (Parking , Emplacement , Vehicule, Status) values ('Jardiland', 'pleinAir', 'simple', 'libre');
+INSERT into Place (Parking , Emplacement , Vehicule, Status) values ('Jardiland', 'pleinAir', 'simple', 'occupe');
+INSERT into Place (Parking , Emplacement , Vehicule, Status) values ('Jardiland', 'pleinAir', 'simple', 'libre');
+
+/*INSERT into Zone values (%s,%s);
 INSERT into Parking (idPark, Nom , Adresse , Zone) values (%s,%s,%s);
 INSERT into Place (NumPlace, Parking , Emplacement , Vehicule, Status  ) values (%s,%s,%s,%s);
 INSERT into Utilisateur (idUser, Nom, Prenom, parking) values (%s,%s,%s,%s);
@@ -96,8 +117,9 @@ INSERT into UtilisateurAbonne (idUser, login, Password, NumeroAbonne, Carte, Pts
 INSERT into Vehicule (IMAT, Utilisateur, Type) values (%s,%s,%s);
 INSERT into Reservation (idResa, Vehicule, Prix, Debut, Fin, Utilisateur, Place) values (%s,%s,%s,%s,%s,%s,%s);
 INSERT into Transaction (idTransac, tdate, moyenPaiement, machine, heureArrivee, heureSortie, imat, place, ETransaction) values (%s,%s,%s,%s,%s,%s,%s,%s,%s);
+*/
 
-
+/* 
 DROP TABLE Transaction;
 DROP TABLE Reservation;
 DROP TABLE Vehicule;
@@ -106,3 +128,4 @@ DROP TABLE Utilisateur;
 DROP TABLE Place;
 DROP TABLE Parking;
 DROP TABLE Zone;
+*/
