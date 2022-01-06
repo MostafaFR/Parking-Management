@@ -7,13 +7,17 @@
 
 * Utilisateur (#idUser : serial, nom : varchar, prenom : varchar)
 
-*UtilisateurAbonne(#idUser=>Utilisateur, login : string, password : string, num_abonne : serial,  CB : string, prix_abo : integer, actif : bool)
+* UtilisateurAbonne(#idUser=>Utilisateur, login : string, password : string, CB : string, ptsfid : integer, prix_abo : integer, actif : bool)
 
 * Vehicule (#IMAT : varchar, utilisateur=>Utilisateur, Vehicule : Type_véhicule)
 
 * Reservation (#idResa : serial, place=>Place, véhicule=>Vehicule, prix : integer, début : date, fin : date)
 
-* Transaction (#ID :integer, date : date, moyen_paiement : Moyen_payement, machine : Type_machine, heure_arrivee : time, imat=>Vehicule(IMAT), place=>Place(num), type : Type_transaction)       // contraintes en fct machine
+* Transaction (#idTransac :serial, date : date, moyen_paiement : Moyen_payement, machine : Type_machine)
+
+* TransactionAbonne (#idTransac=>Transaction, abonne=>UtilisateurAbonne);
+
+* Transaction (#idTransac=>Transaction, heure_arrivee : time, heure_sortie : time, imat=>Vehicule(IMAT), place=>Place(num))       // contraintes en fct machine)
 
 
 
