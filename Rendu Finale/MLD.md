@@ -1,17 +1,19 @@
 # __MLD__ <br/>
-* Parking (#adresse : varchar, #nom : varchar, zone=>Zone)
+* Parking (#idPark : serial, adresse : varchar, nom : varchar, zone=>Zone, nbPlacesMax : integer)
 
 * Zone (#nom : varchar, prix : integer)
 
-* Place (#num : integer, #parking=>Parking, emplacement : Type_emplacement, véhicule : Type_véhicule, status : Status)
+* Place (#num : serial, parking=>Parking, emplacement : Type_emplacement, véhicule : Type_véhicule, status : Status)
 
-* Utilisateur (#ID : integer, nom : varchar, prenom : varchar, num_abonne : integer, CB : string, prix_abo : integer, actif : bool, type : Type_utilisateur)
+* Utilisateur (#idUser : serial, nom : varchar, prenom : varchar)
+
+*UtilisateurAbonne(#idUser=>Utilisateur, login : string, password : string, num_abonne : serial,  CB : string, prix_abo : integer, actif : bool)
 
 * Vehicule (#IMAT : varchar, utilisateur=>Utilisateur, Vehicule : Type_véhicule)
 
-* Reservation (#ID : integer, utilisateur => vehicule, vehicule=>Vehicule, début : date, fin : date)
+* Reservation (#idResa : serial, place=>Place, véhicule=>Vehicule, prix : integer, début : date, fin : date)
 
-* Transaction (#ID :integer, utilisateur=>Utilisateur, date : date, moyen_paiement : Moyen_payement, machine : Type_machine, heure_arrivee : time, imat=>Vehicule(IMAT), utilisateur => vehicule , place=>Place(num), type : Type_transaction)       // contraintes en fct machine
+* Transaction (#ID :integer, date : date, moyen_paiement : Moyen_payement, machine : Type_machine, heure_arrivee : time, imat=>Vehicule(IMAT), place=>Place(num), type : Type_transaction)       // contraintes en fct machine
 
 
 
@@ -32,6 +34,13 @@
 
 
 # Contraintes : 
+
+* adresse.Parking UNIQUE
+
+* login.UtilisateurAbonne UNIQUE
+
+* CB.UtilisateurAbonne UNIQUE
+
 * prix.Zone NOT NULL
 
 * nom.Utilisateur & prenom.Utilisateur NOT NULL
