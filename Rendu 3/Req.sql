@@ -15,6 +15,7 @@ idPark SERIAL PRIMARY KEY,
 Nom VARCHAR,
 Adresse VARCHAR UNIQUE,
 Zone VARCHAR, 
+NbMaxPlaces INTEGER,
 FOREIGN KEY (Zone) REFERENCES Zone(Nom)
 );
 
@@ -88,26 +89,26 @@ FOREIGN KEY (place) REFERENCES Place(NumPlace),
 );
 
 -- Initialisation
-INSERT into Zone values ("Periurbain",2.5);
-INSERT into Zone values ("Centre",3);
-INSERT into Zone values ("Commercial",2);
+INSERT into Zone values ('Periurbain',2.5);
+INSERT into Zone values ('Centre',3);
+INSERT into Zone values ('Commercial',2);
 
 INSERT into Parking (Nom , Adresse , Zone, NbMaxPlaces) values ('Halles', '9 Rue St Jean' , 'Centre' , 120);
 INSERT into Parking (Nom , Adresse , Zone, NbMaxPlaces) values ('Cordeliers', '1 Avenue Cordeliers', 'Centre', 70);
 INSERT into Parking (Nom , Adresse , Zone, NbMaxPlaces) values ('Auchan', '3 Rue St Joseph','Commercial', 250);
 INSERT into Parking (Nom , Adresse , Zone, NbMaxPlaces) values ('Jardiland', '12 Rue des Arbres','Periurbain', 400);
 
-INSERT into Place (Parking , Emplacement , Vehicule, Status) values ('Halles', 'couvert', 'simple', 'libre');
-INSERT into Place (Parking , Emplacement , Vehicule, Status) values ('Halles', 'couvert', 'simple', 'occupe');
-INSERT into Place (Parking , Emplacement , Vehicule, Status) values ('Halles', 'couvert', 'simple', 'reserve');
+INSERT into Place (Parking , Emplacement , Vehicule, Status) values (1, 'couvert', 'simple', 'libre');
+INSERT into Place (Parking , Emplacement , Vehicule, Status) values (1, 'couvert', 'simple', 'occupe');
+INSERT into Place (Parking , Emplacement , Vehicule, Status) values (1, 'couvert', 'simple', 'reserve');
 
-INSERT into Place (Parking , Emplacement , Vehicule, Status) values ('Auchan', 'pleinAir', 'simple', 'libre');
-INSERT into Place (Parking , Emplacement , Vehicule, Status) values ('Auchan', 'pleinAir', 'simple', 'occupe');
-INSERT into Place (Parking , Emplacement , Vehicule, Status) values ('Auchan', 'pleinAir', 'simple', 'libre');
+INSERT into Place (Parking , Emplacement , Vehicule, Status) values (3, 'pleinAir', 'simple', 'libre');
+INSERT into Place (Parking , Emplacement , Vehicule, Status) values (3, 'pleinAir', 'simple', 'occupe');
+INSERT into Place (Parking , Emplacement , Vehicule, Status) values (3, 'pleinAir', 'simple', 'libre');
 
-INSERT into Place (Parking , Emplacement , Vehicule, Status) values ('Jardiland', 'pleinAir', 'simple', 'libre');
-INSERT into Place (Parking , Emplacement , Vehicule, Status) values ('Jardiland', 'pleinAir', 'simple', 'occupe');
-INSERT into Place (Parking , Emplacement , Vehicule, Status) values ('Jardiland', 'pleinAir', 'simple', 'libre');
+INSERT into Place (Parking , Emplacement , Vehicule, Status) values (4, 'pleinAir', 'simple', 'libre');
+INSERT into Place (Parking , Emplacement , Vehicule, Status) values (4, 'pleinAir', 'simple', 'occupe');
+INSERT into Place (Parking , Emplacement , Vehicule, Status) values (4, 'pleinAir', 'simple', 'libre');
 
 /*INSERT into Zone values (%s,%s);
 INSERT into Parking (idPark, Nom , Adresse , Zone) values (%s,%s,%s);
