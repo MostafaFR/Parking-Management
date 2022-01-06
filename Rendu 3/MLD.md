@@ -9,7 +9,7 @@
 
 * Vehicule (#IMAT : varchar, utilisateur=>Utilisateur, Vehicule : Type_véhicule)
 
-* Reservation (#ID : integer, véhicule=>Vehicule, prix : integer, début : date, fin : date)
+* Reservation (#ID : integer, place=>Place, véhicule=>Vehicule, prix : integer, début : date, fin : date)
 
 * Transaction (#ID :integer, date : date, moyen_paiement : Moyen_payement, machine : Type_machine, heure_arrivee : time, imat=>Vehicule(IMAT), place=>Place(num), type : Type_transaction)       // contraintes en fct machine
 
