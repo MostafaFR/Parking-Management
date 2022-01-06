@@ -1,5 +1,5 @@
-CREATE TYPE EEmplacement AS ENUM ('Plein_Air', 'couvert');
-CREATE TYPE EVehicule AS ENUM ('deux_roues','camion','simple');
+CREATE TYPE EEmplacement AS ENUM ('pleinAir', 'couvert');
+CREATE TYPE EVehicule AS ENUM ('deuxRoues','camion','simple');
 CREATE TYPE EPaiement AS ENUM ('Espece','Cartebleu');
 CREATE TYPE EBorne AS ENUM ('Guichet','Automate');
 CREATE TYPE EStatus AS ENUM ('libre','occupe','reserve');
