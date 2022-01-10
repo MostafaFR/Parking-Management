@@ -78,7 +78,14 @@ for raw in res:
 ):
 
 # Récupère en temps réel le nombres de places dispo dans chaque parking (ex 80 places : 14 libres / 52 occupées / 14 réservées)
-def places_dispo():
+def places_dispo(
+
+sql = "SELECT Parking.Nom ,Parking.NbMaxPlaces, COUNT(Numplace) FROM Parking LEFT JOIN Place ON Place.Parking=Parking.idPark WHERE status='libre' GROUP BY Parking.idPark "
+cur.execute(sql)
+res = cur.fetchall()
+for raw in res:
+    print (raw[0] raw[1]-raw[2])
+):
 
 
 def afficher_voitures_utilsateur(User):
