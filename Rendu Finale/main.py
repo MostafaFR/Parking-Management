@@ -101,7 +101,7 @@ def places_dispo():
 def places_dispoP():
     name=input("Nom du parking : ")
 
-    sql = "SELECT Parking.Nom ,Parking.NbMaxPlaces, COUNT(Numplace) FROM Parking LEFT JOIN Place ON Place.Parking=Parking.idPark WHERE (status='occupe' OR status='reserve') AND Parking.Nom = %s GROUP BY Parking.idPark " %(name)
+    sql = "SELECT Parking.Nom ,Parking.NbMaxPlaces, COUNT(Numplace) FROM Parking LEFT JOIN Place ON Place.Parking=Parking.idPark WHERE (status='occupe' OR status='reserve') AND Parking.Nom = %s GROUP BY Parking.idPark " %name
     cur.execute(sql)
     res = cur.fetchall()
     for raw in res:
