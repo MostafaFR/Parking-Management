@@ -44,6 +44,7 @@ def menu():
     print(" 2.   Liste des Utilisateurs")
     print(" 3.   Afficher toutes les Places Disponibles")
     print(" 4.   Afficher toutes les Places Disponibles Pour un Parking")
+    print(" 5.   Ajouter un Utilisateurs")
     print(" Autre.. TO DO")
 
     choice = int(input("Choix : "))
@@ -59,6 +60,9 @@ def menu():
         
     if choice == 4:
         places_dispoP()
+
+    if choice == 5:
+        ajouterUtilisateur(user)
 
 # Affiche les infos basiques de chaque parking
 def liste_parking():
@@ -98,6 +102,16 @@ def places_dispoP():
     for raw in res:
         print (raw[0] raw[1]-raw[2])
 
+
+def ajouterUtilisateur(user)
+    nom = input("Entrer son nom : ")
+    prenom = input("Entrer son prenom : ")
+    sql = "INSERT INTO Utilisateur (nom, prenom);"
+    if len(cur.execute("SELECT nom, prenom FROM Utilisateur WHERE nom ='%s' AND prenom = '%s'")%nom, %prenom) == 0:
+        print("Cet utilisateur n'est pas encore référencé. Nous l'ajoutons à notre database.")
+        cur.execute(sql)
+    else 
+        print("Cet utilisateur est déjà référencé.")
 
 
 def afficher_voitures_utilsateur(User):
