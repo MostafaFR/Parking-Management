@@ -71,7 +71,7 @@ for raw in res:
 ):
 
 # Affiche les infos basiques de chaques users
-def liste_users(
+def liste_users():
 
 sql = "SELECT Nom, Prenom FROM Utilisateur"
 cur.execute(sql)
@@ -79,20 +79,20 @@ res = cur.fetchall()
 for raw in res:
     print (raw[0] raw[1])
 
-):
+
 
 # Récupère en temps réel le nombres de places dispo dans chaque parking (ex 80 places : 14 libres / 52 occupées / 14 réservées)
-def places_dispo(
+def places_dispo():
 
 sql = "SELECT Parking.Nom ,Parking.NbMaxPlaces, COUNT(Numplace) FROM Parking LEFT JOIN Place ON Place.Parking=Parking.idPark WHERE status='occupe' OR status='reserve' GROUP BY Parking.idPark "
 cur.execute(sql)
 res = cur.fetchall()
 for raw in res:
     print (raw[0] raw[1]-raw[2])
-):
+
 
 # Récupère en temps réel le nombres de places dispo un parking (ex 80 places : 14 libres / 52 occupées / 14 réservées)
-def places_dispoP(
+def places_dispoP():
 
 name=input("Nom du parking : ")
 
@@ -101,7 +101,7 @@ cur.execute(sql)
 res = cur.fetchall()
 for raw in res:
     print (raw[0] raw[1]-raw[2])
-):
+
 
 
 def afficher_voitures_utilsateur(User):
