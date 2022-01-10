@@ -59,11 +59,11 @@ def menu():
 # Affiche les infos basiques de chaque parking
 def liste_parking(
 
-sql = "SELECT name, century FROM v_philosopher"
+sql = "SELECT Nom FROM Parking"
 cur.execute(sql)
 res = cur.fetchall()
 for raw in res:
-    print (raw[0], raw[1])
+    print (raw[0])
 ):
 
 # Affiche les infos basiques de chaques users
