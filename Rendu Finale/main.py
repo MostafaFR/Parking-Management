@@ -46,7 +46,7 @@ def menu():
     print(" 4.   Afficher toutes les Places Disponibles Pour un Parking")
     print(" 5.   Ajouter un Utilisateurs")
     print(" 6.   Ajouter un Vehicule")
-    print(" 6.   Reserver une Place")
+#    print(" 7.   Reserver une Place")
     print(" Autre.. TO DO")
 
     choice = int(input("Choix : "))
