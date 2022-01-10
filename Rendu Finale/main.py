@@ -66,6 +66,9 @@ def menu():
     if choice == 5:
         ajouterUtilisateur(user)
 
+    if choice == 6:
+        ajouterVehicule()
+
 # Affiche les infos basiques de chaque parking
 def liste_parking():
     sql = "SELECT Nom FROM Parking"
@@ -105,7 +108,17 @@ def places_dispoP():
         print (raw[0] raw[1]-raw[2])
 
 
-def ajouterUtilisateur(user)
+def ajouterUtilisateur(user):
+    nom = input("Entrer son nom : ")
+    prenom = input("Entrer son prenom : ")
+    sql = "INSERT INTO Utilisateur (nom, prenom);"
+    if len(cur.execute("SELECT nom, prenom FROM Utilisateur WHERE nom ='%s' AND prenom = '%s'")%nom, %prenom) == 0:
+        print("Cet utilisateur n'est pas encore référencé. Nous l'ajoutons à notre database.")
+        cur.execute(sql)
+    else 
+        print("Cet utilisateur est déjà référencé.")
+
+def ajouterVehicule():
     nom = input("Entrer son nom : ")
     prenom = input("Entrer son prenom : ")
     sql = "INSERT INTO Utilisateur (nom, prenom);"
