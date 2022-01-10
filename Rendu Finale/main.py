@@ -67,7 +67,15 @@ for raw in res:
 ):
 
 # Affiche les infos basiques de chaques users
-def liste_users():
+def liste_users(
+
+sql = "SELECT Nom, Prenom FROM Utilisateur"
+cur.execute(sql)
+res = cur.fetchall()
+for raw in res:
+    print (raw[0] raw[1])
+
+):
 
 # Récupère en temps réel le nombres de places dispo dans chaque parking (ex 80 places : 14 libres / 52 occupées / 14 réservées)
 def places_dispo():
