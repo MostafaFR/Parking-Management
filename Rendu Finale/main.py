@@ -108,28 +108,53 @@ def places_dispoP():
         print (raw[0] raw[1]-raw[2])
 
 
-def ajouterUtilisateur(user):
+def ajouterUtilisateur():
     nom = input("Entrer son nom : ")
     prenom = input("Entrer son prenom : ")
-    sql = "INSERT INTO Utilisateur (nom, prenom);"
-    if len(cur.execute("SELECT nom, prenom FROM Utilisateur WHERE nom ='%s' AND prenom = '%s'")%nom, %prenom) == 0:
-        print("Cet utilisateur n'est pas encore référencé. Nous l'ajoutons à notre database.")
-        cur.execute(sql)
-    else 
+    return ajoutUtilisateur(nom,prenom)
+
+
+
+def ajoutUtilisateur(nom,prenom):
+
+    id=recherche_utilisateur(nom, prenom)
+    if id!="null":
         print("Cet utilisateur est déjà référencé.")
+        return id
+
+    sql = "INSERT INTO Utilisateur (nom, prenom);"
+    cur.execute(sql)
+    return recherche_utilisateur(nom, prenom)
+        
 
 def ajouterVehicule():
-    nom = input("Entrer son nom : ")
-    prenom = input("Entrer son prenom : ")
-    sql = "INSERT INTO Utilisateur (nom, prenom);"
-    if len(cur.execute("SELECT nom, prenom FROM Utilisateur WHERE nom ='%s' AND prenom = '%s'")%nom, %prenom) == 0:
-        print("Cet utilisateur n'est pas encore référencé. Nous l'ajoutons à notre database.")
+    imat = input("Entrer la plaque d'immatriculation : ")
+    if len(cur.execute("SELECT imat FROM Vehicule WHERE imat ='%s'")%imat) == 0:
+        print("Ce vehicule n'est pas encore référencé. Nous l'ajouterons à notre database après la saisie de vos informations...")
+        id = ajouterUtilisateur()
+        type = input("Entrer son type : ")
+        while type not in {"deuxRoues","camion","simple"}:
+            print("Vous devez choisir entre deuxRoues, camion et simple")
+            type = input("Entrer son type : ")
+
+        sql = "INSERT INTO Vehicule (IMAT, Utilisateur, Type) values (%s,%s,%s)" %(imat,id,type)
         cur.execute(sql)
     else 
-        print("Cet utilisateur est déjà référencé.")
+        print("Ce vehicule est déjà référencé.")
 
+def recherche_utilisateur(nom, prenom):
+    if len(cur.execute("SELECT nom, prenom FROM Utilisateur WHERE nom ='%s' AND prenom = '%s'")%nom, %prenom) == 0:
+        print("Cet utilisateur n'est pas encore référencé.")
+        return "null"
 
-def afficher_voitures_utilsateur(User):
+    else
+        sql= "SELECT idUser FROM Utilisateur WHERE nom ='%s' AND prenom = '%s'"%(nom,prenom)
+        cur.execute(sql)
+        res = cur.fetchone()
+        for raw in res:
+            return raw[0]
+
+def afficher_voitures_utilisateur(User):
         utilisateur = User.utilsateur_text.displayText()
         try:
             sql = "SELECT  imat, Type FROM Vehicule WHERE utilisateur='%s'"%utilisateur
