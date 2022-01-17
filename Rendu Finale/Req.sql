@@ -164,14 +164,13 @@ VALUES ('AA662VB', 5, 'simple');
 /* -------------------- Reservation -------------------*/
 
 INSERT into Reservation (Vehicule, Prix, Debut, Fin, Utilisateur, Place, Type) 
-VALUES ('DD451FR', 3.50, 2022-01-22 14:05:00, 2022-01-22 17:45:00, 1, 4, 'simple');
+VALUES ('DD451FR', 3.50, '2022-01-22 14:05:00', '2022-01-22 17:45:00', 1, 4, 'simple');
 
 INSERT into Reservation (Vehicule, Prix, Debut, Fin, Utilisateur, Place, Type) 
-VALUES ('VJ982AZ', 13.50, 2022-02-04 10:24:00, 2022-02-08 06:45:00, 3, 1, 'simple');
+VALUES ('VJ982AZ', 13.50, '2022-02-04 10:24:00', '2022-02-08 06:45:00', 3, 1, 'simple');
 
 /* -------------------- Transaction -------------------*/
 
 INSERT into Transaction (tdate, moyenPaiement, machine, heureArrivee, heureSortie, imat, place, ETransaction) 
-VALUES (2022-01-28 18:05:00, 'Cartebleu', 'Guichet', 2022-01-02 10:24:00, 2022-02-04 13:48:00, 'AA662VB', 2);
-
+VALUES ('2022-01-28 18:05:00', 'Cartebleu', 'Guichet', '2022-01-02 10:24:00', '2022-02-04 13:48:00', 'AA662VB', 2);
 
