@@ -51,7 +51,7 @@ PRIMARY KEY(idUser, NumeroAbonne)
 
 CREATE TABLE Vehicule(
 IMAT VARCHAR PRIMARY KEY, 
-Utilisateur INTEGER UNIQUE, 
+Utilisateur INTEGER, 
 Type EVEHICULE,
 FOREIGN KEY (Utilisateur) REFERENCES Utilisateur(idUser)
 );
