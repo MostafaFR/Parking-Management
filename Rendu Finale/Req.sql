@@ -171,6 +171,6 @@ VALUES ('VJ982AZ', 13.50, '2022-02-04 10:24:00', '2022-02-08 06:45:00', 3, 1, 's
 
 /* -------------------- Transaction -------------------*/
 
-INSERT into Transaction (tdate, moyenPaiement, machine, heureArrivee, heureSortie, imat, place, ETransaction) 
-VALUES ('2022-01-28 18:05:00', 'Cartebleu', 'Guichet', '2022-01-02 10:24:00', '2022-02-04 13:48:00', 'AA662VB', 2, 'occasionnel');
+INSERT into Transaction (tdate, moyenPaiement, machine, heureArrivee, heureSortie, imat, place, Type) 
+VALUES ('2022-01-28 18:05:00', 'Cartebleu', 'Automate', '2022-01-02 10:24:00', '2022-02-04 13:48:00', 'AA662VB', 2, 'abonnement');
 
