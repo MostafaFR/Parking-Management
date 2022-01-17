@@ -88,15 +88,23 @@ FOREIGN KEY (place) REFERENCES Place(NumPlace),
     )
 );
 
--- Initialisation
+----------------- Initialisation ---------------------------------------------------
+
+/* -------------------- Zones -------------------*/
+
 INSERT into Zone values ('Periurbain',2.5);
 INSERT into Zone values ('Centre',3);
 INSERT into Zone values ('Commercial',2);
+
+/* -------------------- Parkings -------------------*/
 
 INSERT into Parking (Nom , Adresse , Zone, NbMaxPlaces) values ('Halles', '9 Rue St Jean' , 'Centre' , 120);
 INSERT into Parking (Nom , Adresse , Zone, NbMaxPlaces) values ('Cordeliers', '1 Avenue Cordeliers', 'Centre', 70);
 INSERT into Parking (Nom , Adresse , Zone, NbMaxPlaces) values ('Auchan', '3 Rue St Joseph','Commercial', 250);
 INSERT into Parking (Nom , Adresse , Zone, NbMaxPlaces) values ('Jardiland', '12 Rue des Arbres','Periurbain', 400);
+
+
+/* -------------------- Places -------------------*/
 
 INSERT into Place (Parking , Emplacement , Vehicule, Status) values (1, 'couvert', 'simple', 'libre');
 INSERT into Place (Parking , Emplacement , Vehicule, Status) values (1, 'couvert', 'simple', 'occupe');
@@ -110,23 +118,60 @@ INSERT into Place (Parking , Emplacement , Vehicule, Status) values (4, 'pleinAi
 INSERT into Place (Parking , Emplacement , Vehicule, Status) values (4, 'pleinAir', 'simple', 'occupe');
 INSERT into Place (Parking , Emplacement , Vehicule, Status) values (4, 'pleinAir', 'simple', 'libre');
 
-/*INSERT into Zone values (%s,%s);
-INSERT into Parking (idPark, Nom , Adresse , Zone) values (%s,%s,%s);
-INSERT into Place (NumPlace, Parking , Emplacement , Vehicule, Status  ) values (%s,%s,%s,%s);
-INSERT into Utilisateur (idUser, Nom, Prenom, parking) values (%s,%s,%s,%s);
-INSERT into UtilisateurAbonne (idUser, login, Password, NumeroAbonne, Carte, PtsdeFIdelite, Actif) values (%s,%s,%s,%s,%s,%s,%s);
-INSERT into Vehicule (IMAT, Utilisateur, Type) values (%s,%s,%s);
-INSERT into Reservation (idResa, Vehicule, Prix, Debut, Fin, Utilisateur, Place) values (%s,%s,%s,%s,%s,%s,%s);
-INSERT into Transaction (idTransac, tdate, moyenPaiement, machine, heureArrivee, heureSortie, imat, place, ETransaction) values (%s,%s,%s,%s,%s,%s,%s,%s,%s);
-*/
 
-/* 
-DROP TABLE Transaction;
-DROP TABLE Reservation;
-DROP TABLE Vehicule;
-DROP TABLE UtilisateurAbonne;
-DROP TABLE Utilisateur;
-DROP TABLE Place;
-DROP TABLE Parking;
-DROP TABLE Zone;
-*/
+/* -------------------- Utilisateurs -------------------*/
+
+INSERT into Utilisateur (Nom , Prenom, parking) 
+VALUES ('Spencer', 'Judy', 1);
+INSERT into Utilisateur (idUser , Nom , Prenom, parking) 
+VALUES ('Judah', 'Patel', 3);
+INSERT into Utilisateur (idUser , Nom , Prenom, parking) 
+VALUES ('Leondra', 'Reid', 1);
+INSERT into Utilisateur (idUser , Nom , Prenom, parking) 
+VALUES ('Andrews', 'Simone', 2);
+INSERT into Utilisateur (idUser , Nom , Prenom, parking) 
+VALUES ('Ashley', 'Josephine', 3);
+
+
+/* -------------------- Utilisateurs Abonnés -------------------*/
+
+INSERT into UtilisateurAbonne (idUser, login, password, NumeroAbonne, carte, PtsdeFIdelite, Actif) 
+VALUES ('jashley', 'FhpYfbEduRf8', 0654, 5480 1548 3548 0135, 100, TRUE);
+
+INSERT into UtilisateurAbonne (idUser, login, password, NumeroAbonne, carte, PtsdeFIdelite, Actif) 
+VALUES ('sandrews', 'E4yVR7z7YA3i', 3618, 1548 6747 3548 8874, 450, FALSE);
+
+INSERT into UtilisateurAbonne (idUser, login, password, NumeroAbonne, carte, PtsdeFIdelite, Actif) 
+VALUES ('jspencer', 'sEe5HfQRKq96', 4770, 1461 4575 9986 7754, 1200, TRUE);
+
+
+/* -------------------- Vehicule -------------------*/
+
+INSERT into Vehicule (IMAT , Utilisateur , Type) 
+VALUES ('DD451FR', 1, 'simple');
+INSERT into Vehicule (IMAT , Utilisateur , Type) 
+VALUES ('SF363DF', 1, 'deuxRoues');
+INSERT into Vehicule (IMAT , Utilisateur , Type) 
+VALUES ('GH811CX', 2, 'simple');
+INSERT into Vehicule (IMAT , Utilisateur , Type) 
+VALUES ('VJ982AZ', 3, 'simple');
+INSERT into Vehicule (IMAT , Utilisateur , Type) 
+VALUES ('VC874ZZ', 4, 'simple');
+INSERT into Vehicule (IMAT , Utilisateur , Type) 
+VALUES ('AA662VB', 5, 'simple');
+
+
+/* -------------------- Reservation -------------------*/
+
+INSERT into Reservation (Vehicule, Prix, Debut, Fin, Utilisateur, Place, Type) 
+VALUES ('DD451FR', 3.50, 2022-01-22 14:05:00, 2022-01-22 17:45:00, 1, 4, 'simple');
+
+INSERT into Reservation (Vehicule, Prix, Debut, Fin, Utilisateur, Place, Type) 
+VALUES ('VJ982AZ', 13.50, 2022-02-04 10:24:00, 2022-02-08 06:45:00, 3, 1, 'simple');
+
+/* -------------------- Transaction -------------------*/
+
+INSERT into Transaction (tdate, moyenPaiement, machine, heureArrivee, heureSortie, imat, place, ETransaction) 
+VALUES (2022-01-28 18:05:00, 'Cartebleu', 'Guichet', 2022-01-02 10:24:00, 2022-02-04 13:48:00, 'AA662VB', 2);
+
+
