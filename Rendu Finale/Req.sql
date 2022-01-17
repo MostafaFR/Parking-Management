@@ -123,13 +123,13 @@ INSERT into Place (Parking , Emplacement , Vehicule, Status) values (4, 'pleinAi
 
 INSERT into Utilisateur (Nom , Prenom, parking) 
 VALUES ('Spencer', 'Judy', 1);
-INSERT into Utilisateur (idUser , Nom , Prenom, parking) 
+INSERT into Utilisateur (Nom , Prenom, parking) 
 VALUES ('Judah', 'Patel', 3);
-INSERT into Utilisateur (idUser , Nom , Prenom, parking) 
+INSERT into Utilisateur (Nom , Prenom, parking) 
 VALUES ('Leondra', 'Reid', 1);
-INSERT into Utilisateur (idUser , Nom , Prenom, parking) 
+INSERT into Utilisateur (Nom , Prenom, parking) 
 VALUES ('Andrews', 'Simone', 2);
-INSERT into Utilisateur (idUser , Nom , Prenom, parking) 
+INSERT into Utilisateur (Nom , Prenom, parking) 
 VALUES ('Ashley', 'Josephine', 3);
 
 
