@@ -84,7 +84,7 @@ FOREIGN KEY (place) REFERENCES Place(NumPlace),
   CHECK (
     (machine='Automate' AND moyenPaiement='Cartebleu')
     OR
-    (machine='Automate' AND (moyenPaiement='Cartebleu' OR moyenPaiement='Espece'))
+    (machine='Guichet' AND (moyenPaiement='Cartebleu' OR moyenPaiement='Espece'))
     )
 );
 
@@ -174,3 +174,5 @@ VALUES ('VJ982AZ', 13.50, '2022-02-04 10:24:00', '2022-02-08 06:45:00', 3, 1, 's
 INSERT into Transaction (tdate, moyenPaiement, machine, heureArrivee, heureSortie, imat, place, Type) 
 VALUES ('2022-01-28 18:05:00', 'Cartebleu', 'Automate', '2022-01-02 10:24:00', '2022-02-04 13:48:00', 'AA662VB', 2, 'abonnement');
 
+INSERT into Transaction (tdate, moyenPaiement, machine, heureArrivee, heureSortie, imat, place, Type) 
+VALUES ('2022-01-28 18:05:00', 'Cartebleu', 'Guichet', '2022-03-23 08:24:00', '2022-03-23 10:18:00', 'BB882GA', 3, 'occasionnel');
