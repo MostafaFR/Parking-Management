@@ -43,7 +43,7 @@ login VARCHAR,
 Password VARCHAR,
 FOREIGN KEY (idUser) REFERENCES Utilisateur(idUser),
 NumeroAbonne INTEGER,
-Carte INTEGER,
+Carte BIGINT,
 PtsdeFIdelite INTEGER,
 Actif BOOLEAN,
 PRIMARY KEY(idUser, NumeroAbonne)
