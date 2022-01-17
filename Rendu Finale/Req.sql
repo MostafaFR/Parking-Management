@@ -135,13 +135,13 @@ VALUES ('Ashley', 'Josephine', 3);
 
 /* -------------------- Utilisateurs Abonnés -------------------*/
 
-INSERT into UtilisateurAbonne (idUser, login, password, NumeroAbonne, carte, PtsdeFIdelite, Actif) 
+INSERT into UtilisateurAbonne (login, password, NumeroAbonne, carte, PtsdeFIdelite, Actif) 
 VALUES ('jashley', 'FhpYfbEduRf8', 0654, 5480154835480135, 100, TRUE);
 
-INSERT into UtilisateurAbonne (idUser, login, password, NumeroAbonne, carte, PtsdeFIdelite, Actif) 
+INSERT into UtilisateurAbonne (login, password, NumeroAbonne, carte, PtsdeFIdelite, Actif) 
 VALUES ('sandrews', 'E4yVR7z7YA3i', 3618, 1548674735488874, 450, FALSE);
 
-INSERT into UtilisateurAbonne (idUser, login, password, NumeroAbonne, carte, PtsdeFIdelite, Actif) 
+INSERT into UtilisateurAbonne (login, password, NumeroAbonne, carte, PtsdeFIdelite, Actif) 
 VALUES ('jspencer', 'sEe5HfQRKq96', 4770, 1461457599867754, 1200, TRUE);
 
 
