@@ -13,7 +13,7 @@ def MIdentificationUtilisateur(conn,cursor):
     print("0\ Quitter")
 
     choix = int(input("Choix : "))
-    
+
     if choix == 1:
         MAdmin(conn,cur)
     elif choix == 2:
